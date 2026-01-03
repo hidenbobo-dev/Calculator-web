@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body class="light-mode">
+
+    <div class="calculator-container">
+        <div class="menu-container">
+            <button id="menu-btn" onclick="toggleMenu()">⋮</button>
+            <div id="dropdown-menu" class="dropdown-content">
+                <button onclick="toggleTheme()" id="theme-toggle-text">🌙 Dark Mode</button>
+                <button onclick="copyResult()">📋 Copy Result</button>
+                <hr>
+                <div class="history-section">
+                    <h4>History</h4>
+                    <ul id="history-list"></ul>
+                    <button onclick="clearHistory()" class="clear-btn">Clear History</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="calculator">
+            <div class="display" id="display">0</div>
+            <div class="buttons">
+                <button class="btn btn-red" onclick="clearLast()">C</button>
+                <button class="btn btn-gray" onclick="append('(')">(</button>
+                <button class="btn btn-gray" onclick="append(')')">)</button>
+                <button class="btn btn-yellow" onclick="append('/')">/</button>
+
+                <button class="btn btn-blue" onclick="append('7')">7</button>
+                <button class="btn btn-blue" onclick="append('8')">8</button>
+                <button class="btn btn-blue" onclick="append('9')">9</button>
+                <button class="btn btn-yellow" onclick="append('*')">*</button>
+
+                <button class="btn btn-blue" onclick="append('4')">4</button>
+                <button class="btn btn-blue" onclick="append('5')">5</button>
+                <button class="btn btn-blue" onclick="append('6')">6</button>
+                <button class="btn btn-yellow" onclick="append('+')">+</button>
+
+                <button class="btn btn-blue" onclick="append('1')">1</button>
+                <button class="btn btn-blue" onclick="append('2')">2</button>
+                <button class="btn btn-blue" onclick="append('3')">3</button>
+                <button class="btn btn-yellow" onclick="append('-')">-</button>
+
+                <button class="btn btn-red" onclick="allClear()">AC</button>
+                <button class="btn btn-blue" onclick="append('0')">0</button>
+                <button class="btn btn-blue" onclick="append('.')">.</button>
+                <button class="btn btn-green" onclick="calculate()">=</button>
+            </div>
+        </div>
+    </div>
+
+    <audio id="click-audio">
+        <source src="click.wav" type="audio/wav">
+    </audio>
+    <audio id="success-audio">
+        <source src="success.wav" type="audio/wav">
+    </audio>
+    <audio id="error-audio">
+    <source src="error.mp3" type="audio/mpeg">
+</audio>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
